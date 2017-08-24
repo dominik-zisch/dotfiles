@@ -11,11 +11,6 @@ echo -n "Creating $oldDir for backup of any existing dotfiles in ~"
 mkdir -p $oldDir
 echo " ...done."
 
-## Change to the dotfiles directory
-#echo "Changing to the $dir directory"
-#cd $homeDir
-#echo "...done"
-
 # Move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in * .[^.]*; do
 
@@ -39,6 +34,7 @@ for file in * .[^.]*; do
     fi
     
     cd $scriptPath
+    
 done
 
 echo "Done!"
