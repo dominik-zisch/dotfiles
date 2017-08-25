@@ -1,0 +1,12 @@
+[user]
+  name = Dominik Zisch
+  email = dominik.zisch@gmail.com
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+

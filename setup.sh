@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+# TODO:
+#  - add OSX functionality
+
 
 ## Variables
 scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 oldDir=~/.dotfiles_old
-homeDir=~
 
 ## Create dotfiles_old in homedir
 echo -n "Creating $oldDir for backup of any existing dotfiles in ~"
@@ -14,22 +16,22 @@ echo " ...done."
 # Move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in * .[^.]*; do
 
-    cd $homeDir
+    cd $HOME
     
     if [ $file != "README.md" ] && [ $file != "setup.sh" ] && [ $file != ".git" ]; then
         
-        if [ -L ~/$file ]; then
+        if [ -L "$HOME/.$file" ]; then
             echo "Deleting existing symbolic link."
-            rm ~/$file
+            rm "$HOME/.$file"
         fi
         
-        if [ -f ~/$file ]; then
+        if [ -f "$HOME/.$file" ]; then
             echo "Moving $file from ~ to $oldDir."
-            mv ~/$file $oldDir
+            mv "$HOME/.$file" $oldDir
         fi
         
-        echo "Creating symlink to $file in $homeDir/$file directory."
-        ln -s $scriptPath/$file "$homeDir/$file"
+        echo "Creating symlink to $file in ~/.$file directory."
+        ln -s $scriptPath/$file "$HOME/.$file"
         
     fi
     
