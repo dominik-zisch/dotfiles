@@ -16,10 +16,9 @@ esac
 ##   Check if SSH session                      ##
 #################################################
 
+SSH_SESSION=False
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  echo "SSH"
-else
-  echo "local"
+  SSH_SESSION=True
 fi
 
 
